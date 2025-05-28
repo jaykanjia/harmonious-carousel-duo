@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronUp, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -13,7 +14,7 @@ const DualCarousel = () => {
   const mainCarouselRef = useRef<HTMLDivElement>(null);
   const thumbCarouselRef = useRef<HTMLDivElement>(null);
 
-  // Sample data - replace with your actual data
+  // Extended sample data with 15 images
   const items: CarouselItem[] = [
     { id: 1, image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800", title: "Mountain Vista" },
     { id: 2, image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800", title: "Ocean Waves" },
@@ -21,6 +22,15 @@ const DualCarousel = () => {
     { id: 4, image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800", title: "Forest Path" },
     { id: 5, image: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800", title: "Desert Landscape" },
     { id: 6, image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800", title: "Sunset View" },
+    { id: 7, image: "https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=800", title: "City Skyline" },
+    { id: 8, image: "https://images.unsplash.com/photo-1464822759844-d150baec3e5d?w=800", title: "Snow Mountains" },
+    { id: 9, image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800", title: "Green Forest" },
+    { id: 10, image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=800", title: "Lake Reflection" },
+    { id: 11, image: "https://images.unsplash.com/photo-1418065460487-3d7dd550c390?w=800", title: "River Valley" },
+    { id: 12, image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800", title: "Golden Hour" },
+    { id: 13, image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800", title: "Misty Hills" },
+    { id: 14, image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=800", title: "Autumn Colors" },
+    { id: 15, image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800", title: "Alpine Peak" },
   ];
 
   // Update container height when main carousel changes
