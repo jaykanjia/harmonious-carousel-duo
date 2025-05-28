@@ -40,8 +40,8 @@ const DualCarousel = () => {
   // Scroll thumbnail carousel to keep active item visible
   useEffect(() => {
     if (thumbCarouselRef.current && containerHeight > 0) {
-      const thumbHeight = containerHeight / 4; // Each thumb takes 1/4 of container height
-      const scrollTop = currentIndex * thumbHeight - (containerHeight / 2) + (thumbHeight / 2);
+      const thumbHeight = 80; // Fixed thumbnail height
+      const scrollTop = currentIndex * (thumbHeight + 8) - (containerHeight / 2) + (thumbHeight / 2); // 8px is gap
       thumbCarouselRef.current.scrollTo({
         top: Math.max(0, scrollTop),
         behavior: 'smooth'
@@ -76,8 +76,8 @@ const DualCarousel = () => {
   return (
     <div className="w-full max-w-4xl mx-auto p-4">
       <div className="flex gap-4 bg-white rounded-lg shadow-lg overflow-hidden">
-        {/* Thumbnail Carousel */}
-        <div className="relative flex flex-col" style={{ height: containerHeight || 'auto' }}>
+        {/* Thumbnail Carousel - Vertical */}
+        <div className="relative w-24" style={{ height: containerHeight || 'auto' }}>
           {/* Scroll Up Button */}
           <button
             onClick={scrollThumbUp}
@@ -89,20 +89,18 @@ const DualCarousel = () => {
           {/* Thumbnail Container */}
           <div
             ref={thumbCarouselRef}
-            className="flex-1 overflow-y-auto scrollbar-hide px-2 py-8"
-            style={{ height: containerHeight || 'auto' }}
+            className="h-full overflow-y-auto scrollbar-hide px-2 py-8"
           >
-            <div className="space-y-2">
+            <div className="flex flex-col gap-2">
               {items.map((item, index) => (
                 <button
                   key={item.id}
                   onClick={() => goToSlide(index)}
-                  className={`w-20 aspect-square rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                  className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 flex-shrink-0 ${
                     index === currentIndex
                       ? 'border-blue-500 ring-2 ring-blue-200'
                       : 'border-gray-200 hover:border-gray-400'
                   }`}
-                  style={{ height: containerHeight ? containerHeight / 4 : '80px' }}
                 >
                   <img
                     src={item.image}
